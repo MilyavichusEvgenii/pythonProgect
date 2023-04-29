@@ -21,11 +21,11 @@ def change(a: int):
     objData = data[numberLines]
     objData = list(filter(None, objData.split(";")))
 
-    sign = Input.input("Введите один из параметров 'h' или 'b': h - редактировать заголовок\n, "
-                       "b - редактировать текст заметки")
+    sign = Input.input("Введите один из параметров 'h' или 'b': h - редактировать заголовок,\n"
+                       "b - редактировать текст заметки.\n")
     t = datetime.datetime.now()
     if sign.lower() == "h":
-        heading = Input.input("Введите новый заголовок")
+        heading = Input.input("Введите новый заголовок:\n")
         dataObject = NoteUser(int(objData[0]), heading, objData[2], t)
         data[numberLines] = '{};{};{};{}\n'.format(dataObject.getId(), dataObject.getHeading(), dataObject.getBody(),
                                                    dataObject.getTime())
@@ -38,3 +38,4 @@ def change(a: int):
 
     with open(pathfile, 'w') as file:
         file.writelines(data)
+    print("Запись редактирована.\n")

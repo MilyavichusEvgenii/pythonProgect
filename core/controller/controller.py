@@ -16,15 +16,12 @@ def start():
                            "6 - закончить работу программы.\n")
         if numb == "1":
             add.add()
-            print("Запись сохранена.\n")
         if numb == "2":
             r = Input.input("Укажите номер изменяемой заметки по id:\n")
             changeNote.change(r)
-            print("Запись редактирована.\n")
         if numb == "3":
             d = Input.input("Укажите номер удаляемой заметки по id:\n")
             delete.delNote(d)
-            print("Запись удалена")
         if numb == "4":
             data = explorer.explorer()
             out.out(data)

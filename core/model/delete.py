@@ -15,9 +15,10 @@ def delNote(a: int):
             if text in i:
                 answer = True
         if not answer:
-            print("Операция преравана. Отсутствует значение\n")
+            print("Операция преравана. Отсутствует значение.\n")
             return
     with open(pathfile, 'w') as file:
         for line in data:
             if text not in line.strip("\n"):
                 file.write(line)
+    print("Запись удалена.")
