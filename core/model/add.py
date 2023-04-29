@@ -6,8 +6,8 @@ import datetime
 
 
 def add():
-    heading = Input.input("Введите заголовок заметки")
-    body = Input.input("Введите текст заметки")
+    heading = Input.input("Введите заголовок заметки:\n")
+    body = Input.input("Введите текст заметки\n")
     t = datetime.datetime.now()
     data = operations.reader()
 

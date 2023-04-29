@@ -9,9 +9,15 @@ def change(a: int):
     pathfile = "Notes.csv"
     with open(pathfile, 'r') as file:
         data = file.readlines()
+    if len(data) == 0:
+        print("Операция не может быть выполнена. Отстутствуют записи.\n")
+        return
     for number, i in enumerate(data):
-        if text in data:
+        if text in i:
             numberLines = number
+    if numberLines == 0:
+        print("Операция прервана. Такой записи нет.\n")
+        return
     objData = data[numberLines]
     objData = list(filter(None, objData.split(";")))
 
@@ -25,7 +31,7 @@ def change(a: int):
                                                    dataObject.getTime())
 
     if sign.lower() == "b":
-        body = Input.input("Введите новую заметку")
+        body = Input.input("Введите новую заметку:\n")
         dataObject = NoteUser(int(objData[0]), objData[1], body, t)
         data[numberLines] = '{};{};{};{}\n'.format(dataObject.getId(), dataObject.getHeading(), dataObject.getBody(),
                                                    dataObject.getTime())
