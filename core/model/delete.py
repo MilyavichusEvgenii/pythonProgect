@@ -17,8 +17,11 @@ def delNote(a: int):
         if not answer:
             print("Операция преравана. Отсутствует значение.\n")
             return
+    listS = list(filter(None, data))
+    listS = [list(filter(None, i.split(";"))) for i in listS]
     with open(pathfile, 'w') as file:
-        for line in data:
-            if text not in line.strip("\n"):
-                file.write(line)
+        for line in range(len(listS)):
+            if a != listS[line][0]:
+                file.write('{};{};{};{}'.format(listS[line][0], listS[line][1], listS[line][2],
+                                                  listS[line][3]))
     print("Запись удалена.")

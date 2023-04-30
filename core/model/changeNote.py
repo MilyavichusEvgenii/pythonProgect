@@ -5,16 +5,17 @@ import datetime
 
 def change(a: int):
     numberLines = 0
-    text = str(a) + ";"
     pathfile = "Notes.csv"
     with open(pathfile, 'r') as file:
         data = file.readlines()
     if len(data) == 0:
         print("Операция не может быть выполнена. Отстутствуют записи.\n")
         return
-    for number, i in enumerate(data):
-        if text in i:
-            numberLines = number
+    listS = list(filter(None, data))
+    listS = [list(filter(None, i.split(";"))) for i in listS]
+    for i in range(len(listS)):
+        if a == listS[i][0]:
+            numberLines = i
     if numberLines == 0:
         print("Операция прервана. Такой записи нет.\n")
         return

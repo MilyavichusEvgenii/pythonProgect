@@ -8,5 +8,7 @@ def reader():
     data = ""
     with open(pathFile, 'r') as file:
         data = file.read()
+    if len(data) == 0:
+        print("Отсутствуют записи.\n")
     return data
 
